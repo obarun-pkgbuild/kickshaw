@@ -1,14 +1,14 @@
 # Maintainer: Eric Vidal <eric@obarun.org>
 
 pkgname=kickshaw
-pkgver=0.5.4
+pkgver=0.5.8
 pkgrel=1
 pkgdesc='A menu editor for openbox'
 url='https://github.com/natemaia/kickshaw'
 arch=('x86_64')
-sha256sums=('3486220da9b398dedcad0a061f6c0c46590ab2076586c6138a9a3ea5846e248f')
+sha256sums=('095945c997a5e3a15c643fa5dca24c72ac74b8101b1bcd18c143a9d637e1918c')
 license=('GPL2')
-source=("$url/raw/master/kickshaw_0.5.4_source_only.tar.bz2")
+source=("$url/raw/master/source.tar.gz")
 makedepends=('gtk3' 'gcc')
 depends=('gtk3')
 
@@ -19,11 +19,11 @@ build() {
 
 package() {
   cd source/
-  install -Dm755 kickshaw "$pkgdir/usr/bin/kickshaw"
-  install -Dm755 kickshaw.desktop "$pkgdir/usr/share/applications/kickshaw.desktop"
+  install -Dm 0755 kickshaw "$pkgdir/usr/bin/kickshaw"
+  install -Dm 0644 kickshaw.desktop "$pkgdir/usr/share/applications/kickshaw.desktop"
 
   # license , copying readme in license directory for provide author
   cd ../
-  install -Dm755 README.md "${pkgdir}/usr/share/licenses/kickshaw/README.md"
-  install -Dm755 COPYING "${pkgdir}/usr/share/licenses/kickshaw/COPYING"
+  install -Dm 0644 README.md "${pkgdir}/usr/share/licenses/kickshaw/README.md"
+  install -Dm 0644 COPYING "${pkgdir}/usr/share/licenses/kickshaw/COPYING"
 }
