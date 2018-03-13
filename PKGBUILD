@@ -1,12 +1,12 @@
 # Maintainer: Eric Vidal <eric@obarun.org>
 
 pkgname=kickshaw
-pkgver=0.5.23
+pkgver=0.5.24
 pkgrel=1
 pkgdesc='A menu editor for openbox'
 url='https://github.com/natemaia/kickshaw'
 arch=('x86_64')
-sha256sums=('7c728d4c907151812897da45cc936598aca00eaa6ae1b7ceefa8daeb4ea57897'
+sha256sums=('e2e9a8b5d887a1314a1077071b2ac410b664eae47f14b4c13ecc15c5e84d382f'
             'c10cb8cab7f32ac4288e4bcdc50b90bb35813993846c5d882c98a7b05a40be22'
             '32b1062f7da84967e7019d01ab805935caa7ab7321a7ced0e30ebe75e5df1670')
 license=('GPL2')
@@ -17,12 +17,12 @@ makedepends=('gtk3' 'gcc')
 depends=('gtk3')
 
 build() {
-  cd ${pkgname}_${pkgver}_source_only/source/
+  cd ${pkgname}_${pkgver}_source_only/GTK3/source/
   make
 }
 
 package() {
-  cd ${pkgname}_${pkgver}_source_only/source/
+  cd ${pkgname}_${pkgver}_source_only/GTK3/source/
   install -Dm 0755 kickshaw "$pkgdir/usr/bin/kickshaw"
   
   # license , copying readme in license directory for provide author
